@@ -4,7 +4,7 @@ import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils"
 import { db } from "../appwrite/databases"
 import Spinner from "../icons/Spinner"
 
-const NoteCard = ({ note, setNotes }) => {
+const NoteCard = ({ note }) => {
     const [saving, setSaving] = useState(false);
     const keyUpTimer = useRef(null);
 
@@ -93,7 +93,7 @@ const NoteCard = ({ note, setNotes }) => {
                 className="card-header"
                 style={{ backgroundColor: colors.colorHeader }}
             >
-                <DeleteButton setNotes={setNotes} noteId={note.$id} />
+                <DeleteButton noteId={note.$id} />
                 {saving && (
                     <div className="card-saving">
                         <Spinner color={colors.colorText} />
